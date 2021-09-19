@@ -67,9 +67,28 @@ public final class Main {
         try {
           input = input.trim();
           String[] arguments = input.split(" ");
-          System.out.println(arguments[0]);
+          //System.out.println(arguments[0]);
           // TODO: complete your REPL by adding commands for addition "add" and subtraction
           //  "subtract"
+
+          if (arguments.length != 3) {
+            System.out.println("Error: there must be three arguments!");
+          }
+
+          MathBot mb1 = new MathBot();
+          double num1 = Double.parseDouble(arguments[1]);
+          double num2 = Double.parseDouble(arguments[2]);
+
+          //add
+          if (arguments[0].equals("add")) {
+            System.out.println(mb1.add(num1, num2));
+          }
+
+          //subtract
+          if (arguments[0].equals("subtract")) {
+            System.out.println(mb1.subtract(num1, num2));
+          }
+
         } catch (Exception e) {
           // e.printStackTrace();
           System.out.println("ERROR: We couldn't process your input");
